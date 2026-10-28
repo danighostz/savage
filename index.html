@@ -885,7 +885,7 @@
             transform: translateY(-3px);
         }
 
-        /* ===== BANNER 3 (texto arriba + imagen completa) ===== */
+        /* ===== BANNER 3 ===== */
         .banner3-wrap {
             position: relative;
             width: 100%;
@@ -1605,7 +1605,7 @@
             color: #fff;
         }
 
-        /* ✅ AVISO DE ANTICIPO REDISEÑADO */
+        /* ✅ AVISO DE ANTICIPO ESTILO ALERTA */
         .aviso-anticipo {
             display: flex;
             align-items: flex-start;
@@ -2044,11 +2044,11 @@
 
             <div class="galeria-item fade-in">
                 <div class="galeria-img-wrap">
-                    <span class="galeria-tag">Fade</span>
-                    <img src="img/corte5.jpg" alt="Buzz Cuto" loading="lazy">
+                    <span class="galeria-tag">Desvanecido</span>
+                    <img src="img/corte12.jpg" alt="Buzz Cuto" loading="lazy">
                 </div>
                 <div class="info">
-                    <h3>Buzz Cuto</h3>
+                    <h3>Desvanecido Bien Pulido</h3>
                     <div class="precio">$200 MXN</div>
                 </div>
             </div>
@@ -2104,7 +2104,7 @@
                     <img src="img/corte8.jpg" alt="High Fade" loading="lazy">
                 </div>
                 <div class="info">
-                    <h3>High Fade</h3>
+                    <h3>High Fade + Barba</h3>
                     <div class="precio">$250 MXN</div>
                 </div>
             </div>
@@ -2115,8 +2115,8 @@
                     <img src="img/corte4.jpg" alt="Desvanecido Medio y Diseño" loading="lazy">
                 </div>
                 <div class="info">
-                    <h3>Desvanecido Medio y Diseño</h3>
-                    <div class="precio">$250 MXN</div>
+                    <h3>Desvanecido Medio y Diseño (Sencillo)</h3>
+                    <div class="precio">$250 MXN (varía según diseño)</div>
                 </div>
             </div>
         </div>
@@ -2189,16 +2189,14 @@
                         <span>+52 1 744 175 8276</span>
                     </div>
                 </div>
-
-                <a href="https://maps.app.goo.gl/GjqEAexoipb9Urgt5" target="_blank" rel="noopener" class="btn-como-llegar">
+                <a href="https://maps.app.goo.gl/hQ7fCRrEDNPtuj4i7" target="_blank" rel="noopener" class="btn-como-llegar">
                     <i class="fas fa-route"></i> Cómo Llegar
                 </a>
             </div>
 
-            <!-- ✅ MAPA EMBEBIDO OFICIAL -->
             <div class="visitanos-map fade-in">
-                <iframe
-                    src="https://www.google.com/maps?q=16.883917,-99.824667&z=17&output=embed"
+               <iframe
+                    src="https://www.google.com/maps?q=Joe+Barber+Blends+Acapulco&z=17&output=embed"
                     allowfullscreen
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
@@ -2292,7 +2290,7 @@
             <a href="https://www.tiktok.com/@joebarberblends?_r=1&_t=ZS-9Asr3wtYcY0" target="_blank" rel="noopener" class="tiktok">
                 <i class="fab fa-tiktok"></i> TikTok
             </a>
-            <a href="https://www.facebook.com/profile.php?id=100068230608201" target="_blank" rel="noopener" class="facebook">
+            <a href="https://www.facebook.com/profile.php?id=61595025316190" target="_blank" rel="noopener" class="facebook">
                 <i class="fab fa-facebook-f"></i> Facebook
             </a>
             <a href="https://wa.me/5217441758276?text=Hola%20me%20gustar%C3%ADa%20agendar%20una%20cita" target="_blank" rel="noopener" class="whatsapp">
@@ -2342,8 +2340,23 @@
                     <input type="time" id="hora" name="hora" required>
                 </div>
 
+                <!-- ✅ NUEVO SELECT: TIPO DE SERVICIO -->
                 <div class="form-group">
-                    <label for="tipoServicio"><i class="fas fa-scissors"></i> Tipo de Servicio</label>
+                    <label for="tipoCorte"><i class="fas fa-scissors"></i> Servicio</label>
+                    <select id="tipoCorte" name="tipoCorte" required>
+                        <option value="">Selecciona el servicio...</option>
+                        <option value="Corte a tijera">Corte a tijera</option>
+                        <option value="Corte clásico">Corte clásico</option>
+                        <option value="Desvanecido/fade">Desvanecido/fade</option>
+                        <option value="Corte y planchado para dama">Corte y planchado para dama</option>
+                        <option value="Trenzas">Trenzas</option>
+                        <option value="Dreadlocks/rastas">Dreadlocks/rastas</option>
+                    </select>
+                </div>
+
+                <!-- ✅ UBICACIÓN: LOCAL o DOMICILIO -->
+                <div class="form-group">
+                    <label for="tipoServicio"><i class="fas fa-map-marker-alt"></i> Modalidad</label>
                     <select id="tipoServicio" name="tipoServicio" required onchange="toggleDireccion()">
                         <option value="">Selecciona una opción...</option>
                         <option value="En el Local">En el Local (Barbería)</option>
@@ -2352,7 +2365,7 @@
                 </div>
 
                 <div class="form-group" id="grupoDireccion" style="display:none;">
-                    <label for="direccion"><i class="fas fa-map-marker-alt"></i> Dirección (para servicio a domicilio)</label>
+                    <label for="direccion"><i class="fas fa-home"></i> Dirección (para servicio a domicilio)</label>
                     <textarea id="direccion" name="direccion" rows="2" placeholder="Calle, número, colonia, referencias..."></textarea>
                 </div>
 
@@ -2450,13 +2463,14 @@
             }
         }
 
-        /* ✅ MENSAJE DE WHATSAPP LIMPIO SIN CARACTERES RAROS */
+        /* ✅ MENSAJE DE WHATSAPP LIMPIO CON SERVICIO + MODALIDAD */
         function enviarCita(e) {
             e.preventDefault();
 
             const nombre = document.getElementById('nombre').value.trim();
             const dia = document.getElementById('dia').value;
             const hora = document.getElementById('hora').value;
+            const tipoCorte = document.getElementById('tipoCorte').value;
             const tipo = document.getElementById('tipoServicio').value;
             const direccion = document.getElementById('direccion').value.trim();
 
@@ -2479,7 +2493,8 @@
             mensaje += 'Nombre: ' + nombre + '\n';
             mensaje += 'Día: ' + fechaFormateada + '\n';
             mensaje += 'Hora: ' + horaFormateada + '\n';
-            mensaje += 'Servicio: ' + tipo + '\n';
+            mensaje += 'Servicio: ' + tipoCorte + '\n';
+            mensaje += 'Modalidad: ' + tipo + '\n';
 
             if (tipo === 'A Domicilio' && direccion) {
                 mensaje += 'Dirección: ' + direccion + '\n';
